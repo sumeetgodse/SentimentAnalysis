@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Indian Elections</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	{% load static %}
+
+  <link rel = "stylesheet" type = "text/css" href = "{% static 'blog/bootstrap.min.css' %}">
+<style>
+th
+{
+  border: 1px solid black;
+  background-color: #bdbdbd
+}
+td
+{
+  border: 1px solid black;
+  background-color: #e0e0e0
+}
+a:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 100px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+</head>
+<body>
+
+<br>
+
+<ul>
+  {% load static %}
+  <img src="{% static "blog/l.jpg" %}" height=60px width=120px style="margin-left:100px;margin-bottom:2px;margin-top:2px">
+    <li><a href="http://127.0.0.1:8000/algo/">Algorithms Used</a></li>
+    <li><a href="http://127.0.0.1:8000/home/">Election Data</a></li>
+    <li><a href="http://127.0.0.1:8000">Home</a></li>
+</ul>
+
+<br>
+
+<div style="text-align: center;border-radius: 5px;color:white;  background-color: #333;">
+  OVERALL VIEW
+</div>
+
+<div style="text-align: center;border: 2px solid black;border-radius: 5px" id="pie1">
+  	<div style="width:50%;float:left">{% load static %}
+	<img src="{% static "blog/test1.png" %}" style="height:400px;width:400px" >
+	</div>
+  	<div style="width:auto">{% load static %}
+	<img src="{% static "blog/test2.png" %}" style="height:400px;width:400px" >
+	</div>
+</div> 
+
+<div class="row" id="num1">
+	{% for post in posts %}
+  	<div class="col-sm-6">
+  		<table style="width:100%">
+  			<tr><th>Number of Positive tweets</th><td>{{post.pos}}</td></tr>
+  			<tr><th>Number of Negative tweets</th><td>{{post.neg}}</td></tr>
+  			<tr><th>Number of Neutral tweets</th><td>{{post.neu}}</td></tr>
+  		</table>
+	</div>
+  	{% endfor %}
+</div> 
+
+<div style="text-align: center;border: 2px solid black;border-radius: 5px" id="bar">
+  	{% load static %}
+	<img src="{% static "blog/bar.png" %}" style="height:400px;width:600px" >
+</div> 
+<br>
+
+<div style="text-align: center;border-radius: 5px;color:white;  background-color: #333;">
+  UNBIASED VIEW
+</div>
+
+<div style="text-align: center;border: 2px solid black;border-radius: 5px" id="pie2">
+    <div style="width:50%;float:left">{% load static %}
+  <img src="{% static "blog/mod1.png" %}" style="height:400px;width:400px" >
+  </div>
+    <div style="width:auto">{% load static %}
+  <img src="{% static "blog/mod2.png" %}" style="height:400px;width:400px" >
+  </div>
+</div> 
+
+<div class="row" id="num2">
+  {% for post in posts %}
+    <div class="col-sm-6">
+      <table style="width:100%">
+        <tr><th>Positive Influencer Score</th><td>{{post.pis}}</td></tr>
+        <tr><th>Negative Influencer Score</th><td>{{post.nis}}</td></tr>
+      </table>
+  </div>
+    {% endfor %}
+</div> 
+
+<br>
+</body>
+</html> 

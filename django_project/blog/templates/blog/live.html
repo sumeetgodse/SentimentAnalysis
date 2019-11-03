@@ -1,0 +1,84 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Indian Elections</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+
+  <link rel = "stylesheet" type = "text/css" href = "{% static 'blog/bootstrap.min.css' %}">
+  <style>
+a:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 100px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+</head>
+<body>
+
+
+<br>
+
+<ul>
+  {% load static %}
+  <img src="{% static "blog/l.jpg" %}" height=60px width=120px style="margin-left:100px;margin-bottom:2px;margin-top:2px">
+    <li><a href="">Live Data</a></li>
+    <li><a href="http://127.0.0.1:8000/home/">Election Data</a></li>
+    <li><a href="http://127.0.0.1:8000">Home</a></li>
+</ul>
+
+<br>
+<div style="border: 2px solid black;border-radius: 5px">
+
+<form  id='form1' method='post' onsubmit=f1() style="text-align: center">
+  <br>
+    <label>Tweets related to any Political Party Keyword</label><br>
+  <label>Please enter the Keyword : </label><br><br>
+  <input type="text" id=input name="input">
+  <br><br>
+    
+  {% csrf_token %}
+  <input type="submit"   value="Submit" style="background-color: green;border: 2px solid black;height:30px;width:100px;color:white;border-radius: 5px;">
+  <br><br>
+</form>
+
+</div>
+
+<script>
+  function f1()
+  {
+    var input = document.getElementById("input").value;  
+    document.getElementById("form1").action = 'liveres/';
+    document.getElementById("form1").submit();  
+  }
+</script>
+
+
+  
+</body>
+</html>

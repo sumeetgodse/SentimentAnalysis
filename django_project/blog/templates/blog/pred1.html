@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Elections Predictions</title>
+  <style>
+
+.t1
+{
+	height: 80px;width: 98.5%;background-color: #b71c1c       ;border: 2px solid white;
+  border-radius: 5px;
+  position: fixed;color:white;
+  text-align:center;
+}
+.form_style
+{
+	height: 200px;width: 98.5%;background-color:       ;border: 2px solid black;
+  border-radius: 5px;
+  position: fixed;
+  text-align:center;margin-top:50px;
+}
+.center
+{
+	width:500px;height:500px;
+	margin-left: 100px;
+}
+a
+{
+	text-decoration: none;
+}
+
+</style>
+
+
+</head>
+
+<body background="">
+
+	<div class="t1">
+		<h1>Election Results Predictions</h1>
+	</div>
+	<br><br><br><br><br><br>
+	{% load static %}
+	<img src="{% static "blog/test1.png" %}" alt="My image">
+
+<br><br>
+
+<a href="http://127.0.0.1:8000">
+			{% csrf_token %}
+			<input type="submit" value="Home" style="margin-left:600px;background-color: red;border: 2px solid black;height:30px;width:100px;color:white;border-radius: 5px;"	 ></div>
+</a>
+	
+</body>
+</html>

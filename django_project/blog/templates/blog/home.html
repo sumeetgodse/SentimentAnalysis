@@ -1,0 +1,334 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Indian Elections</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	{% load static %}
+
+  <link rel = "stylesheet" type = "text/css" href = "{% static 'blog/bootstrap.min.css' %}">
+  <style>
+a:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 100px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+</head>
+<body>
+
+
+<br>
+
+<ul>
+	{% load static %}
+	<img src="{% static "blog/l.jpg" %}" height=60px width=120px style="margin-left:100px;margin-bottom:2px;margin-top:2px">
+  	<li><a href="http://127.0.0.1:8000/algo/">Algorithms Used</a></li>
+  	<li><a href="">Election Data</a></li>
+  	<li><a href="http://127.0.0.1:8000">Home</a></li>
+</ul>
+
+<br>
+<div style="border: 2px solid black;border-radius: 5px">
+
+<form  id='form1' method='post' onsubmit=f1() style="text-align: center">
+	<br>
+	<label>Comparison of Tweets related to any two different Indian Political Parties</label><br>
+	<label>Please select your choices :- </label><br><br>
+	<select id="party1">
+  		<option value="">--Make a choice--</option>
+  		<option value="bjp">Bharatiya Janata Party</option>
+  		<option value="inc">Indian National Congress</option>
+  		<option value="ncp">Nationalist Congress Party</option>
+  		<option value="aap">Aam Aadmi Party</option>
+  		<option value="tmc">All India Trinamool Congress</option>
+  		<option value="bsp">Bahujan Samaj Party</option>
+  		<option value="cpim">Communist Party of India (M)</option>
+	</select>	
+	<select id="party2">
+  		<option value="">--Make a choice--</option>
+  		<option value="bjp">Bharatiya Janata Party</option>
+  		<option value="inc">Indian National Congress</option>
+		<option value="ncp">Nationalist Congress Party</option>
+  		<option value="aap">Aam Aadmi Party</option>
+  		<option value="tmc">All India Trinamool Congress</option>
+  		<option value="bsp">Bahujan Samaj Party</option>
+  		<option value="cpim">Communist Party of India (M)</option>
+	</select>	
+	<br><br>
+		
+	{% csrf_token %}
+	<input type="submit"   value="Compare" style="background-color: green;border: 2px solid black;height:30px;width:100px;color:white;border-radius: 5px;">
+	<br><br>
+</form>
+
+</div>
+
+<script>
+	function f1()
+	{
+		var x1= document.getElementById("party1").selectedIndex;
+		var action1 = document.getElementsByTagName("option")[x1].value;
+		var x2= document.getElementById("party2").selectedIndex;
+		var action2 = document.getElementsByTagName("option")[x2].value;
+		if(action1 == "bjp" && action2=="inc")
+		{
+			document.getElementById("form1").action = 'bjp_inc/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "inc" && action2=="bjp")
+		{
+			document.getElementById("form1").action = 'bjp_inc/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "bjp" && action2=="ncp")
+		{
+			document.getElementById("form1").action = 'bjp_ncp/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "ncp" && action2=="bjp")
+		{
+			document.getElementById("form1").action = 'bjp_ncp/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "bjp" && action2=="aap")
+		{
+			document.getElementById("form1").action = 'bjp_aap/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "aap" && action2=="bjp")
+		{
+			document.getElementById("form1").action = 'bjp_aap/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "bjp" && action2=="tmc")
+		{
+			document.getElementById("form1").action = 'bjp_tmc/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "tmc" && action2=="bjp")
+		{
+			document.getElementById("form1").action = 'bjp_tmc/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "bjp" && action2=="bsp")
+		{
+			document.getElementById("form1").action = 'bjp_bsp/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "bsp" && action2=="bjp")
+		{
+			document.getElementById("form1").action = 'bjp_bsp/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "bjp" && action2=="cpim")
+		{
+			document.getElementById("form1").action = 'bjp_cpim/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "cpim" && action2=="bjp")
+		{
+			document.getElementById("form1").action = 'bjp_cpim/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "inc" && action2=="ncp")
+		{
+			document.getElementById("form1").action = 'inc_ncp/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "ncp" && action2=="inc")
+		{
+			document.getElementById("form1").action = 'inc_ncp/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "inc" && action2=="aap")
+		{
+			document.getElementById("form1").action = 'inc_aap/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "aap" && action2=="inc")
+		{
+			document.getElementById("form1").action = 'inc_aap/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "inc" && action2=="tmc")
+		{
+			document.getElementById("form1").action = 'inc_tmc/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "tmc" && action2=="inc")
+		{
+			document.getElementById("form1").action = 'inc_tmc/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "inc" && action2=="bsp")
+		{
+			document.getElementById("form1").action = 'inc_bsp/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "bsp" && action2=="inc")
+		{
+			document.getElementById("form1").action = 'inc_bsp/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "inc" && action2=="cpim")
+		{
+			document.getElementById("form1").action = 'inc_cpim/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "cpim" && action2=="inc")
+		{
+			document.getElementById("form1").action = 'inc_cpim/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "ncp" && action2=="aap")
+		{
+			document.getElementById("form1").action = 'ncp_aap/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "aap" && action2=="ncp")
+		{
+			document.getElementById("form1").action = 'ncp_aap/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "ncp" && action2=="tmc")
+		{
+			document.getElementById("form1").action = 'ncp_tmc/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "tmc" && action2=="ncp")
+		{
+			document.getElementById("form1").action = 'ncp_tmc/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "ncp" && action2=="bsp")
+		{
+			document.getElementById("form1").action = 'ncp_bsp/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "bsp" && action2=="ncp")
+		{
+			document.getElementById("form1").action = 'ncp_bsp/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "ncp" && action2=="cpim")
+		{
+			document.getElementById("form1").action = 'ncp_cpim/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "cpim" && action2=="ncp")
+		{
+			document.getElementById("form1").action = 'ncp_cpim/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "aap" && action2=="tmc")
+		{
+			document.getElementById("form1").action = 'aap_tmc/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "tmc" && action2=="aap")
+		{
+			document.getElementById("form1").action = 'aap_tmc/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "aap" && action2=="bsp")
+		{
+			document.getElementById("form1").action = 'aap_bsp/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "bsp" && action2=="aap")
+		{
+			document.getElementById("form1").action = 'aap_bsp/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "aap" && action2=="cpim")
+		{
+			document.getElementById("form1").action = 'aap_cpim/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "cpim" && action2=="aap")
+		{
+			document.getElementById("form1").action = 'aap_cpim/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "tmc" && action2=="bsp")
+		{
+			document.getElementById("form1").action = 'tmc_bsp/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "bsp" && action2=="tmc")
+		{
+			document.getElementById("form1").action = 'tmc_bsp/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "tmc" && action2=="cpim")
+		{
+			document.getElementById("form1").action = 'tmc_cpim/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "cpim" && action2=="tmc")
+		{
+			document.getElementById("form1").action = 'tmc_cpim/';
+			document.getElementById("form1").submit();
+		}
+
+		if(action1 == "bsp" && action2=="cpim")
+		{
+			document.getElementById("form1").action = 'bsp_cpim/';
+			document.getElementById("form1").submit();
+		}
+		if(action1 == "cpim" && action2=="bsp")
+		{
+			document.getElementById("form1").action = 'bsp_cpim/';
+			document.getElementById("form1").submit();
+		}
+	}
+</script>
+
+
+	
+</body>
+</html>

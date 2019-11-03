@@ -1,0 +1,85 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Indian Elections</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	{% load static %}
+
+  <link rel = "stylesheet" type = "text/css" href = "{% static 'blog/bootstrap.min.css' %}">
+
+<style>
+
+a:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 100px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:white;
+  text-align: center
+}
+</style>
+
+</head>
+{% load static %}
+<body>
+
+
+<br>
+
+<ul>
+
+	{% load static %}
+	<img src="{% static "blog/l.jpg" %}" height=60px width=120px style="margin-left:100px;margin-bottom:2px;margin-top:2px">
+  	<li><a href="algo/">Algorithms Used</a></li>
+  	<li><a href="home/">Election Data</a></li>
+  	<li><a href="">Home</a></li>
+</ul>
+
+<img src="{% static "blog/bg.jpg" %}" alt="Snow" style="width:100%;height:580px">
+<div class="centered">
+
+<h1>Sentiment Analysis on Twitter Political Data</h1>
+<br>
+<h3>Group ID 12</h3>
+<h3>Guide-K.Y. Digholkar</h3>
+<br><br>
+<h4>4909-Apurv Andhale</h4>
+<h4>4932-Sumeet Godse</h4>
+<h4>4945-Onkar Kokate</h4>
+<h4>4953-Rohit Palve</h4>
+
+</div>
+
+</body>
+</html>
